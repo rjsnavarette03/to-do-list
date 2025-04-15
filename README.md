@@ -6,13 +6,9 @@ A simple and clean to-do list built with React.
 
 - ✅ Add and delete tasks
 - 🌙 Dark mode toggle
-- 🕒 Timestamp with full format (e.g. April 15, 2025 @ 1:15:02 PM)
 - 📂 Select categories for tasks
-- ✔️ Checkmark to mark tasks as done
-- 🔄 Tasks sorted by most recent
-- 📑 Tasks grouped as **To Do** and **Done**
+- 📑 Tasks grouped as **To-Do** and **Done**
 - 🧹 One-click clear for completed tasks
-- 💾 Data saved in browser (local storage)
 
 ---
 
@@ -45,7 +41,7 @@ Then open your browser to [http://localhost:3000](http://localhost:3000)
 
 - Tasks are stored in browser local storage, so they don't disappear on refresh.
 - Tasks include category, timestamp, and "done" status.
-- Tasks are shown in two groups: **To Do** and **Done**.
+- Tasks are shown in two groups: **To-Do** and **Done**.
 - Each task shows the formatted date and time it was added.
 
 ---
