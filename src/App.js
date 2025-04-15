@@ -11,7 +11,7 @@ function App() {
     return saved ? JSON.parse(saved) : [];
   });
   const [category, setCategory] = useState('General');
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     localStorage.setItem('todoList', JSON.stringify(todos));
