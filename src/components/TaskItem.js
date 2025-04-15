@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatDate } from '../utils/formatDate';
 
 function TaskItem({ todo, index, toggleDone, deleteTask }) {
   return (
@@ -16,7 +17,7 @@ function TaskItem({ todo, index, toggleDone, deleteTask }) {
           </span>
           <br />
           <small className="todo-meta">
-            {todo.category} | {todo.time}
+            {todo.category} | {formatDate(todo.time)}
           </small>
         </div>
       </div>
