@@ -6,7 +6,7 @@ body {
 
 .app-container {
     min-height: 100vh;
-    padding: 20px;
+    padding: 20px 30vw;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -113,4 +113,14 @@ body {
 
 .light .todo-item {
     background: #fff;
-}  
+}
+
+.clear-button {
+    background: #e60000;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}

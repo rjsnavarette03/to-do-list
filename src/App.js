@@ -19,7 +19,7 @@ function App() {
 
   const addTask = () => {
     if (task.trim() === '') return;
-    const time = new Date().toLocaleString();
+    const time = new Date().toISOString();
     setTodos([...todos, { text: task, done: false, time, category }]);
     setTask('');
     setCategory('General');
@@ -34,6 +34,17 @@ function App() {
   const deleteTask = (index) => {
     setTodos(todos.filter((_, i) => i !== index));
   };
+
+  const clearCompleted = () => {
+    const confirmClear = window.confirm('Clear all completed tasks?');
+    if (confirmClear) {
+      setTodos(todos.filter((todo) => !todo.done));
+    }
+  };
+
+  const sortedTodos = [...todos].sort((a, b) => new Date(b.time) - new Date(a.time));
+  const todoList = sortedTodos.filter((todo) => !todo.done);
+  const doneList = sortedTodos.filter((todo) => todo.done);
 
   return (
     <div className={`app-container ${darkMode ? 'dark' : 'light'}`}>
@@ -51,10 +62,25 @@ function App() {
       />
 
       <ul className="todo-list">
-        {todos.map((todo, index) => (
+        <h3>🟢 To Do ({todoList.length})</h3>
+        {todoList.map((todo, index) => (
           <TaskItem
             key={index}
-            index={index}
+            index={todos.indexOf(todo)}
+            todo={todo}
+            toggleDone={toggleDone}
+            deleteTask={deleteTask}
+          />
+        ))}
+
+        <h3 style={{ marginTop: 30 }}>✅ Done ({doneList.length})</h3>
+        <button className="clear-button" onClick={clearCompleted}>
+          🗑 Clear Completed
+        </button>
+        {doneList.map((todo, index) => (
+          <TaskItem
+            key={index}
+            index={todos.indexOf(todo)}
             todo={todo}
             toggleDone={toggleDone}
             deleteTask={deleteTask}
