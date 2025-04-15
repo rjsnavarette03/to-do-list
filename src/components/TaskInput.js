@@ -1,17 +1,17 @@
 import React from 'react';
 
-function TaskInput({ task, setTask, category, setCategory, addTask, inputStyle }) {
+function TaskInput({ task, setTask, category, setCategory, addTask, darkMode }) {
   return (
-    <div style={{ display: 'flex', gap: 10, marginBottom: 20 }}>
+    <div className="input-group">
       <input
-        style={inputStyle}
+        className={`input-field ${darkMode ? 'input-dark' : 'input-light'}`}
         type="text"
         value={task}
         onChange={(e) => setTask(e.target.value)}
         placeholder="Add a new task"
       />
       <select
-        style={inputStyle}
+        className={`input-field ${darkMode ? 'input-dark' : 'input-light'}`}
         value={category}
         onChange={(e) => setCategory(e.target.value)}
       >
@@ -20,18 +20,7 @@ function TaskInput({ task, setTask, category, setCategory, addTask, inputStyle }
         <option value="Personal">Personal</option>
         <option value="Urgent">Urgent</option>
       </select>
-      <button
-        style={{
-          padding: '10px 20px',
-          fontSize: 16,
-          background: '#4caf50',
-          color: 'white',
-          border: 'none',
-          borderRadius: 5,
-          cursor: 'pointer',
-        }}
-        onClick={addTask}
-      >
+      <button className="add-button" onClick={addTask}>
         Add
       </button>
     </div>
